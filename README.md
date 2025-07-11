@@ -38,9 +38,12 @@ cp .env.example .env
 # サーバー用依存関係のインストール
 uv sync
 
-# VOICEVOXの起動
-# VOICEVOXアプリケーションを起動するか、以下のコマンドでサーバーを起動
-voicevox_engine --host 0.0.0.0 --port 50021
+# VOICEVOXアプリケーションを起動
+# 下記リンクからダウンロード
+https://voicevox.hiroshiba.jp/
+
+# macの認証エラーがでるので下記知恵袋を参考に対処(自己責任ではあるが)
+https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11315231866
 ```
 
 ### 3. クライアントのセットアップ
@@ -59,6 +62,7 @@ uv run python run_server.py
 
 ### クライアント起動
 ```bash
+# ターミナルを新しく開く
 # プロジェクトルートディレクトリで実行
 uv run python run_client.py
 

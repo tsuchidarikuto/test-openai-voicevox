@@ -1,0 +1,22 @@
+[project]
+name = "test-openai-voicevox"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "aiofiles>=24.1.0",
+    "fastapi>=0.116.0",
+    "numpy>=2.3.1",
+    "openai>=1.93.3",
+    "pyaudio>=0.2.14",
+    "pydub>=0.25.1",
+    "python-dotenv>=1.1.1",
+    "python-multipart>=0.0.20",
+    "requests>=2.32.4",
+    "scipy>=1.16.0",
+    "simpleaudio>=1.0.4",
+    "uvicorn>=0.35.0",
+]
+
+[tool.uv.workspace]
