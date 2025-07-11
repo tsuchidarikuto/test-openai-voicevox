@@ -36,8 +36,7 @@ cp .env.example .env
 ### 2. サーバーのセットアップ
 ```bash
 # サーバー用依存関係のインストール
-cd app
-uv add -r requirements.txt
+uv sync
 
 # VOICEVOXの起動
 # VOICEVOXアプリケーションを起動するか、以下のコマンドでサーバーを起動
@@ -46,9 +45,8 @@ voicevox_engine --host 0.0.0.0 --port 50021
 
 ### 3. クライアントのセットアップ
 ```bash
-# クライアント用依存関係のインストール
-cd client
-uv add -r requirements.txt
+# プロジェクト全体の依存関係が既にuvでインストールされています
+# 追加のセットアップは不要です
 ```
 
 ## 使用方法
@@ -56,22 +54,44 @@ uv add -r requirements.txt
 ### サーバー起動
 ```bash
 # プロジェクトルートディレクトリで実行
-python run_server.py
+uv run python run_server.py
 ```
 
 ### クライアント起動
 ```bash
 # プロジェクトルートディレクトリで実行
-python run_client.py
+uv run python run_client.py
 
 # 別のサーバーに接続する場合
-python run_client.py http://192.168.1.100:8000
+uv run python run_client.py http://192.168.1.100:8000
 ```
+
+### 複数PCで使用する場合
+デフォルトではサーバーは`0.0.0.0:8000`で全インターフェースで待ち受けており、複数のPCから接続可能です。
+
+1. **サーバー側の設定**
+   - サーバーは既に全IPアドレスで待ち受けています（`0.0.0.0`）
+   - ファイアウォールで8000番ポートを開放してください
+   - サーバーのIPアドレスを確認：
+     ```bash
+     # macOS/Linux
+     ifconfig | grep inet
+     # Windows
+     ipconfig
+     ```
+
+2. **クライアント側の設定**
+   - 環境変数で設定: `SERVER_URL=http://サーバーIP:8000`を`.env`に追加
+   - または実行時に指定: `uv run python run_client.py http://サーバーIP:8000`
+
+3. **ネットワーク要件**
+   - サーバーとクライアントは同一ネットワーク内にある必要があります
+   - VPN経由でも接続可能です
 
 ### 単体実行版
 ```bash
 # サーバーとクライアントを同一PCで実行
-python main_standalone.py
+uv run python main_standalone.py
 ```
 
 ## 設定

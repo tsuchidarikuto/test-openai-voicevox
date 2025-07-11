@@ -24,7 +24,8 @@ client/
 
 ### 1. 依存関係のインストール
 ```bash
-uv add -r requirements.txt
+# プロジェクトルートで実行
+uv sync
 ```
 
 ### 2. 環境変数の設定（オプション）
@@ -33,13 +34,31 @@ uv add -r requirements.txt
 SERVER_URL=http://192.168.1.100:8000
 ```
 
-### 3. クライアントの起動
+### 3. 複数PCから接続する場合
+デフォルトでは`localhost:8000`に接続しますが、複数のPCから接続する場合は：
+
+1. **サーバー側のIPアドレスを確認**
+   ```bash
+   # macOS/Linux
+   ifconfig | grep inet
+   # Windows
+   ipconfig
+   ```
+
+2. **クライアント側で接続先を指定**
+   - 環境変数で設定: `SERVER_URL=http://サーバーIP:8000`
+   - 実行時に指定: `uv run python run_client.py http://サーバーIP:8000`
+
+3. **ファイアウォールの設定**
+   - サーバー側で8000番ポートを開放してください(macだとデフォルトで解放されておりおそらく不要)
+
+### 4. クライアントの起動
 ```bash
 # プロジェクトルートから実行
-python run_client.py
+uv run python run_client.py
 
 # 別のサーバーに接続する場合
-python run_client.py http://192.168.1.100:8000
+uv run python run_client.py http://192.168.1.100:8000
 ```
 
 ## 使用方法
