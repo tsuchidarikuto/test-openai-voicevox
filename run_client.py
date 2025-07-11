@@ -8,7 +8,7 @@ client_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'client')
 sys.path.insert(0, client_dir)
 
 try:
-    from main import main
+    from client.main import main
     
     if __name__ == "__main__":
         try:

@@ -7,8 +7,8 @@ app_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'server')
 sys.path.insert(0, app_dir)
 
 try:
-    from main import server
-    from config import settings
+    from server.main import server
+    from server.config import settings
     
     if __name__ == "__main__":
         import uvicorn
