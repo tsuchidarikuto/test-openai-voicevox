@@ -49,7 +49,5 @@ class VoiceClient:
         except KeyboardInterrupt:
             pass
         finally:
-            print("\nShutting down...")
-            if config.notification_enabled:
-                self.audio_service.play_notification_sound()
+            print("\nShutting down...")            
             self.audio_service.cleanup()

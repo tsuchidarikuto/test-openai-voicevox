@@ -17,12 +17,6 @@ class AudioService:
     def _print_error(self, context: str, error: Exception) -> None:
         print(f"{context} error: {error}")
     
-    def play_notification_sound(self) -> None:
-        try:
-            subprocess.run(["say", "Program finished"], check=False)
-        except:
-            print("Program finished")
-    
     async def record_audio_with_vad(self) -> Optional[AudioData]:
         stream = self.audio.open(
             format=self.format,
