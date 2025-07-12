@@ -9,7 +9,7 @@ class Settings:
         if not self.openai_api_key:
             raise ValueError("OPENAI_API_KEY not set")
         
-        self.voicevox_url = "http://localhost:50021"
+        self.voicevox_url = "http://127.0.0.1:50021"
         self.speaker_id = 1
         self.max_tokens = 150
         self.transcribe_model = "gpt-4o-mini-transcribe"
