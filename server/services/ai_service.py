@@ -35,7 +35,7 @@ class AIService:
             response = await self.client.chat.completions.create(
                 model=self.chat_model,
                 messages=[
-                    {"role": "system", "content": "You are a helpful voice assistant. Keep responses concise."},
+                    {"role": "system", "content": "おばあちゃんと話す5歳児のように喋りなさい。応答はなるべくシンプルで、短くしてください。"},
                     {"role": "user", "content": user_text}
                 ],
                 max_tokens=self.max_tokens
