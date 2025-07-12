@@ -1,5 +1,6 @@
 from supabase import create_client, Client
 from config import settings
+
 # Supabaseクライアントを初期化
 try:
     # 'create_client'は同期的ですが、その後の操作は非同期にできます
