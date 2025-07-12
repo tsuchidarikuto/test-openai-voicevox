@@ -10,7 +10,7 @@ class Settings:
             raise ValueError("OPENAI_API_KEY not set")
         
         self.voicevox_url = "http://localhost:50021"
-        self.speaker_id = 1
+        self.speaker_id = 5
         self.max_tokens = 150
         self.transcribe_model = "gpt-4o-mini-transcribe"
         self.chat_model = "gpt-4o-mini"
